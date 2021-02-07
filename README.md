@@ -1,4 +1,4 @@
-# java-coding-puzzle
+# java-coding-puzzlea
 
 Simple template for gitpod, java 11 : 
 
