@@ -7,18 +7,31 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class StackSolution<E> {
+public class StackListSolution<E> {
 
     /**
      * list bases implementation
      *
-     * its important to notice that we should add new
+     * its important to notice that we should add new element to the end of the list because adding to the
+     * 
+     * begining is expensive 
+     * 
+     * Option 1 : 
+     * add to the end, remove from the begining
+     *  insert at the end O1
+     *  insert at the end O1
+     * Option 2 : 
+     *  add to the begining remove from the end 
+     *  ~ bad idea to add elements at the begining : 
+     * insert at the begining On
+     * remove at the begining On - we have to reindex all the other elements in the list
+     * 
      *
      */
 
     Integer size = 0;
 
-    private List list = new ArrayList();
+    private List<E> list = new ArrayList<E>();
 
     public void add(E element) {
         list.add(element);
@@ -46,36 +59,12 @@ public class StackSolution<E> {
 
 }
 
-class StackSolutionLinkedList<E> {
-
-    Integer size = 0;
-
-    public void add(E element) {
-
-    }
-
-    public E remove() {
-
-        return null;
-    }
-
-    public E peek() {
-
-        return null;
-    }
-
-    public Boolean isEmpty() {
-        return null;
-    }
-
-}
-
 class StackSolutionTest {
 
     @Test
     @DisplayName("StackSolution can add and remove items")
     void shouldRemoveAndAddItems() {
-        StackSolution<Integer> StackSolution = new StackSolution<>();
+        StackListSolution<Integer> StackSolution = new StackListSolution<>();
         StackSolution.add(1);
         assertThat(StackSolution.remove()).isEqualTo(1);
         StackSolution.add(2);
@@ -86,7 +75,7 @@ class StackSolutionTest {
     @Test
     @DisplayName("StackSolution can follows first in, last out")
     void shouldFirstInLastOut() {
-        StackSolution<Integer> StackSolution = new StackSolution<>();
+        StackListSolution<Integer> StackSolution = new StackListSolution<>();
         StackSolution.add(1);
         StackSolution.add(2);
         StackSolution.add(3);
@@ -98,7 +87,7 @@ class StackSolutionTest {
     @Test
     @DisplayName("peek returns the first element but does not remove it")
     void shouldPeekReturnsFirstElement() {
-        StackSolution<Character> StackSolution = new StackSolution<>();
+        StackListSolution<Character> StackSolution = new StackListSolution<>();
         StackSolution.add('A');
         StackSolution.add('B');
         StackSolution.add('C');
@@ -119,14 +108,14 @@ class StackSolutionTest {
     @Test
     @DisplayName("newly created StackSolution is empty")
     void shouldNewlyCreatedStackSolutionIsEmpty() {
-        StackSolution<Character> StackSolution = new StackSolution<>();
+        StackListSolution<Character> StackSolution = new StackListSolution<>();
         assertThat(StackSolution.isEmpty()).isTrue();
     }
 
     @Test
     @DisplayName("StackSolution is empty after removing all items")
     void shouldStackSolutionIsEmptyAfterRemovingAllElements() {
-        StackSolution<Character> StackSolution = new StackSolution<>();
+        StackListSolution<Character> StackSolution = new StackListSolution<>();
 
         StackSolution.add('A');
         StackSolution.add('B');
@@ -143,7 +132,7 @@ class StackSolutionTest {
     @Test
     @DisplayName("StackSolution with items is not empty")
     void shouldNotEmptyWithItems() {
-        StackSolution<Character> StackSolution = new StackSolution<>();
+        StackListSolution<Character> StackSolution = new StackListSolution<>();
         StackSolution.add('A');
         assertThat(StackSolution.isEmpty()).isFalse();
         StackSolution.add('B');
@@ -153,7 +142,7 @@ class StackSolutionTest {
     @Test
     @DisplayName("StackSolution has correct size")
     void shouldStackSolutionHasCorrectSize() {
-        StackSolution<Character> StackSolution = new StackSolution<>();
+        StackListSolution<Character> StackSolution = new StackListSolution<>();
 
         StackSolution.add('A');
         assertThat(StackSolution.size).isEqualTo(1);
