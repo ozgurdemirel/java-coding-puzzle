@@ -10,4 +10,4 @@ note : how to install plugin https://www.gitpod.io/docs/vscode-extensions/
 
 Data structures and puzzles are implemented under the test folder with solution suffix named  class file
 
-to run test for a spesific class : mvn surefire:test -Dtest=[packet name ].[classs]
+to run test for a specific class : mvn surefire:test -Dtest=[packet name ].[classs]
