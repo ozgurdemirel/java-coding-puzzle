@@ -6,3 +6,8 @@ Simple template for gitpod, java 11 :
 
 
 note : how to install plugin https://www.gitpod.io/docs/vscode-extensions/
+
+
+Data structures and puzzles are implemented under the tes folder with solution suffix named  class file
+
+to run test for a spesific class : mvn surefire:test -Dtest=[packet name ].[classs]
